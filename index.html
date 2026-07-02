@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="tk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Website</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #111827, #1e3a8a, #7c3aed);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 25px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      animation: topDown 1s ease;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #facc15;
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8%;
+      gap: 40px;
+    }
+
+    .text {
+      max-width: 550px;
+      animation: leftShow 1.2s ease;
+    }
+
+    .text h1 {
+      font-size: 58px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .text h1 span {
+      color: #facc15;
+    }
+
+    .text p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #e5e7eb;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background: #facc15;
+      color: #111827;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 25px rgba(250, 204, 21, 0.5);
+      transition: 0.3s;
+      animation: pulse 2s infinite;
+    }
+
+    .btn:hover {
+      transform: scale(1.08);
+      background: white;
+    }
+
+    .image-box {
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 6px solid rgba(255,255,255,0.3);
+      box-shadow: 0 0 50px rgba(255,255,255,0.3);
+      animation: float 3s ease-in-out infinite, rightShow 1.2s ease;
+    }
+
+    .image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      animation: move 8s infinite alternate;
+      z-index: -1;
+    }
+
+    .c1 {
+      width: 120px;
+      height: 120px;
+      top: 20%;
+      left: 10%;
+    }
+
+    .c2 {
+      width: 180px;
+      height: 180px;
+      bottom: 10%;
+      right: 10%;
+      animation-delay: 1s;
+    }
+
+    .c3 {
+      width: 80px;
+      height: 80px;
+      top: 60%;
+      left: 45%;
+      animation-delay: 2s;
+    }
+
+    @keyframes topDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes leftShow {
+      from { transform: translateX(-80px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes rightShow {
+      from { transform: translateX(80px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-25px); }
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 15px rgba(250,204,21,0.4); }
+      50% { box-shadow: 0 0 35px rgba(250,204,21,0.9); }
+      100% { box-shadow: 0 0 15px rgba(250,204,21,0.4); }
+    }
+
+    @keyframes move {
+      from { transform: translate(0, 0) scale(1); }
+      to { transform: translate(60px, -40px) scale(1.2); }
+    }
+
+    @media (max-width: 850px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin: 0 10px;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 40px;
+      }
+
+      .text h1 {
+        font-size: 42px;
+      }
+
+      .image-box {
+        width: 280px;
+        height: 280px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="circle c1"></div>
+  <div class="circle c2"></div>
+  <div class="circle c3"></div>
+
+  <header>
+    <div class="logo">MySite</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Gallery</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="text">
+      <h1>Gowy <span>Animasiýaly</span> Web Saýt</h1>
+      <p>
+        Bu sahypa HTML we CSS bilen ýasaldy. Animasiýa, gradient fon,
+        hereket edýän şekiller we owadan surat effekti bar.
+      </p>
+      <a href="#" class="btn">Başla</a>
+    </div>
+
+    <div class="image-box">
+      <img src="image.jpg" alt="Main Image">
+    </div>
+  </section>
+
+</body>
+</html>
